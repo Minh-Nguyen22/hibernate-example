@@ -1,10 +1,12 @@
 package hibernate_exapmle.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "students")
-public class Student {
+public class Student implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,13 +21,23 @@ public class Student {
     @Column
     private int age;
 
-    public Student() {
-    }
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<Device> devices;
 
-    public Student(String firstName, String lastName, int age) {
+    public Student() { }
+
+    public Student( String firstName, String lastName, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
+    }
+
+    public void setOfDevices(Set<Device> devices) {
+        this.devices = devices;
+    }
+
+    public Set<Device> getDevices() {
+        return devices;
     }
 
     public int getId() {
@@ -54,5 +66,15 @@ public class Student {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Student: " +
+                "\nid = " + id +
+                "\nfirstName = " + firstName  +
+                "\nlastName = " + lastName +
+                "\nage = " + age +
+                "\ndevices = " + devices.toString();
     }
 }

@@ -784,13 +784,13 @@ false YEKT
 false Z
 false Zulu
 </TimeZones>
-      <StartupTime>1604692524</StartupTime>
+      <StartupTime>1604908772</StartupTime>
     </root>
     <database id="2" parent="1" name="postgres">
       <ObjectId>13442</ObjectId>
       <Comment>default administrative connection database</Comment>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>791</IntrospectionStateNumber>
+      <IntrospectionStateNumber>3017</IntrospectionStateNumber>
       <Current>1</Current>
     </database>
     <role id="3" parent="1" name="pg_execute_server_program">
@@ -842,7 +842,7 @@ false Zulu
       <Comment>standard public schema</Comment>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>792</IntrospectionStateNumber>
+      <IntrospectionStateNumber>3018</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="15" parent="2" name="heap">
@@ -921,51 +921,111 @@ false Zulu
     <language id="26" parent="2" name="plpgsql"/>
     <language id="27" parent="2" name="sql"/>
     <sequence id="28" parent="14" name="hibernate_sequence">
-      <ObjectId>16535</ObjectId>
+      <ObjectId>18701</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>782</StateNumber>
+      <StateNumber>2991</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
-    <table id="29" parent="14" name="students">
-      <ObjectId>16537</ObjectId>
+    <table id="29" parent="14" name="devices">
+      <ObjectId>18711</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>783</StateNumber>
+      <StateNumber>3016</StateNumber>
     </table>
-    <column id="30" parent="29" name="id">
+    <table id="30" parent="14" name="students">
+      <ObjectId>18703</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>2994</StateNumber>
+    </table>
+    <column id="31" parent="29" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>783</StateNumber>
+      <StateNumber>2993</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="31" parent="29" name="age">
+    <column id="32" parent="29" name="firm">
       <Position>2</Position>
-      <DataType>integer|0s</DataType>
-      <StateNumber>783</StateNumber>
-      <TypeId>23</TypeId>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>2993</StateNumber>
+      <TypeId>1043</TypeId>
     </column>
-    <column id="32" parent="29" name="first_name">
+    <column id="33" parent="29" name="model">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>783</StateNumber>
+      <StateNumber>2993</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="33" parent="29" name="last_name">
+    <column id="34" parent="29" name="type">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>783</StateNumber>
+      <StateNumber>2993</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="34" parent="29" name="students_pkey">
-      <ObjectId>16543</ObjectId>
-      <StateNumber>783</StateNumber>
+    <column id="35" parent="29" name="student_id">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>2993</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="36" parent="29" name="subjects_pkey">
+      <ObjectId>18717</ObjectId>
+      <StateNumber>2993</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="35" parent="29" name="students_pkey">
-      <ObjectId>16544</ObjectId>
-      <StateNumber>783</StateNumber>
+    <key id="37" parent="29" name="subjects_pkey">
+      <ObjectId>18718</ObjectId>
+      <StateNumber>2993</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>subjects_pkey</UnderlyingIndexName>
+    </key>
+    <foreign-key id="38" parent="29" name="fkhyfrm3h9qjhvly6vcqh311gq7">
+      <ObjectId>18719</ObjectId>
+      <StateNumber>2994</StateNumber>
+      <ColNames>student_id</ColNames>
+      <RefTableId>18703</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>students</RefTableName>
+      <RefKeyName>students_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="39" parent="30" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2992</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="40" parent="30" name="age">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>2992</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="41" parent="30" name="first_name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>2992</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="42" parent="30" name="last_name">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>2992</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="43" parent="30" name="students_pkey">
+      <ObjectId>18709</ObjectId>
+      <StateNumber>2992</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="44" parent="30" name="students_pkey">
+      <ObjectId>18710</ObjectId>
+      <StateNumber>2992</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>students_pkey</UnderlyingIndexName>

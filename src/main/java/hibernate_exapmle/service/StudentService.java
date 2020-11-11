@@ -7,31 +7,28 @@ import java.util.List;
 
 public class StudentService {
 
+    StudentDao studentDao = new StudentDao();
+
     public void saveStudent(Student student){
-        StudentDao studentDao = new StudentDao();
         studentDao.saveStudent(student);
     }
 
     public void updateStudent(Student student){
-        StudentDao studentDao = new StudentDao();
         studentDao.updateStudent(student);
     }
 
     public void deleteStudent(int id){
-        StudentDao studentDao = new StudentDao();
-        studentDao.deleteStudent(id);
+        studentDao.deleteStudentById(id);
     }
 
     public Student getStudentById(int id){
-        StudentDao studentDao = new StudentDao();
         Student student = studentDao.getStudentById(id);
         return student;
     }
 
     public List<Student> getAllStudents(){
-        StudentDao studentDao = new StudentDao();
         List<Student> students = studentDao.getAllStudents();
-        students.forEach(s -> System.out.println(s.getId()));
+        students.forEach(s -> System.out.println(s.toString()));
         return students;
     }
 }

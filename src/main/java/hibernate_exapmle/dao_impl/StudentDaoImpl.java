@@ -10,6 +10,6 @@ public interface StudentDaoImpl {
     void updateStudent(Student student);
     Student getStudentById(int id);
     List<Student> getAllStudents();
-    void deleteStudent(int id);
+    void deleteStudentById(int id);
 
 }

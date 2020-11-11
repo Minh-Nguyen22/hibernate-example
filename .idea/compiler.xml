@@ -9,5 +9,6 @@
         <module name="Hibernate_Example" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="14" />
   </component>
 </project>

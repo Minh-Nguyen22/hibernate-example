@@ -1,20 +1,18 @@
 package hibernate_exapmle.dao;
 
-import hibernate_exapmle.dao_impl.StudentDaoImpl;
+import hibernate_exapmle.dao_impl.DeviceDaoImpl;
+import hibernate_exapmle.model.Device;
 import hibernate_exapmle.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
-import java.util.List;
+public class DeviceDao implements DeviceDaoImpl {
 
-public class StudentDao implements StudentDaoImpl {
-
-    public void saveStudent(hibernate_exapmle.model.Student student) {
+    public void saveDevice(Device device) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
-            session.save(student);
+            session.save(device);
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null)
@@ -23,11 +21,11 @@ public class StudentDao implements StudentDaoImpl {
         }
     }
 
-    public void updateStudent(hibernate_exapmle.model.Student student) {
+    public void updateDevice(Device device) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
-            session.saveOrUpdate(student);
+            session.saveOrUpdate(device);
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
@@ -37,12 +35,12 @@ public class StudentDao implements StudentDaoImpl {
         }
     }
 
-    public hibernate_exapmle.model.Student getStudentById(int id) {
+    public Device getDeviceById(int id) {
         Transaction transaction = null;
-        hibernate_exapmle.model.Student student = null;
+        Device device = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
-            student = session.get(hibernate_exapmle.model.Student.class, id);
+            device = session.get(Device.class, id);
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
@@ -50,31 +48,16 @@ public class StudentDao implements StudentDaoImpl {
             }
             e.getMessage();
         }
-        return student;
+        return device;
     }
 
-    public List<hibernate_exapmle.model.Student> getAllStudents() {
+    public void deleteDeviceById(int id) {
         Transaction transaction = null;
-        List<hibernate_exapmle.model.Student> students = null;
+        Device device = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
-            students = session.createQuery("from Student ").list();
-            transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null)
-                transaction.rollback();
-            e.getMessage();
-        }
-        return students;
-    }
-
-    public void deleteStudentById(int id) {
-        Transaction transaction = null;
-        hibernate_exapmle.model.Student student = null;
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            transaction = session.beginTransaction();
-            student = session.get(hibernate_exapmle.model.Student.class, id);
-            session.delete(student);
+            device = session.get(Device.class, id);
+            session.delete(device);
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null)

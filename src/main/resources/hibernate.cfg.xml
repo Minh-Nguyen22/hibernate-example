@@ -27,6 +27,7 @@
         <property name="hibernate.dbcp.maxWaitMillis">-1</property>
 
         <mapping class="hibernate_exapmle.model.Student" />
+        <mapping class="hibernate_exapmle.model.Device" />
 
     </session-factory>
 </hibernate-configuration>
